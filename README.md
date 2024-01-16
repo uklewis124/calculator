@@ -1,5 +1,5 @@
 # Calculator Project using Tkinter (python)
-To use, Download [*main.py*](https://github.com/uklewis124/calculator/releases/tag/release) from Releases, and run the file.
+To use, Download [*main.py*](https://github.com/uklewis124/calculator/releases/) from Releases, and run the file.
 **Please ensure that tkinter has been downloaded before running.**
 
 ### To install tkinter (if not already installed)
