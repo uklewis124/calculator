@@ -37,52 +37,49 @@ def eight():
 def nine():
     entry.insert(tk.END, "9")
 
-def sin():
-    NotImplemented
+def left_bracket():
+    entry.insert(tk.END, "(")
 
-def cos():
-    NotImplemented
+def right_bracket():
+    entry.insert(tk.END, ")")
 
-def tan():
-    NotImplemented
+def clear():
+    entry.delete(0, tk.END)
 
 def delete():
-    NotImplemented
+    entry.delete(len(entry.get()) - 1)
 
 def divide():
-    NotImplemented
+    entry.insert(tk.END, "/")
 
 def multiply():
-    NotImplemented
+    entry.insert(tk.END, "x")
 
 def subtract():
-    NotImplemented
+    entry.insert(tk.END, "-")
 
 def add():
-    NotImplemented
+    entry.insert(tk.END, "+")
 
 def decimal():
-    NotImplemented 
+    entry.insert(tk.END, ".")
 
 def equals():
     thing_to_be_calculated = entry.get()
     new_thing_to_be_calculated = []
     for i in thing_to_be_calculated:
-        if i == "÷":
-            new_thing_to_be_calculated.append("/")
-        elif i == "×":
-            print("hi")
+        if i.lower() == "x":
             new_thing_to_be_calculated.append("*")
+        elif i.lower() == "^":
+            new_thing_to_be_calculated.append("**")
         else:
             new_thing_to_be_calculated.append(i)
-    print(new_thing_to_be_calculated)
-    print(thing_to_be_calculated)
     thing_to_be_calculated = "".join(new_thing_to_be_calculated)
-    print(new_thing_to_be_calculated)
-    print(thing_to_be_calculated)
     answer = None
     try:
         answer = eval(thing_to_be_calculated)
+    except ZeroDivisionError:
+        answer = "e: 0/0 not possible"
     except ArithmeticError:
         answer = "Error"
     except SyntaxError:
@@ -102,10 +99,10 @@ button_frame.grid()
 # Creating button instances
 entry = tk.Entry(button_frame, width=50)
 
-button_sin = tk.Button(button_frame, text="sin", command=sin, width=9, height=2)
-button_cos = tk.Button(button_frame, text="cos", command=cos, width=9, height=2)
-button_tan = tk.Button(button_frame, text="tan", command=tan, width=9, height=2)
-button_delete = tk.Button(button_frame, text="del", command=delete, width=9, height=2)
+button_left_bracket = tk.Button(button_frame, text="(", command=left_bracket, width=9, height=2)
+button_right_bracket = tk.Button(button_frame, text=")", command=right_bracket, width=9, height=2)
+button_delete = tk.Button(button_frame, text="DEL", command=delete, width=9, height=2)
+button_clear = tk.Button(button_frame, text="C", command=clear, width=9, height=2)
 button_one = tk.Button(button_frame, text="1", command=one, width=9, height=2)
 button_two = tk.Button(button_frame, text="2", command=two, width=9, height=2)
 button_three = tk.Button(button_frame, text="3", command=three, width=9, height=2)
@@ -126,10 +123,10 @@ button_equals = tk.Button(button_frame, text="=", command=equals, width=9, heigh
 
 # Assigning buttons to a grid
 entry.grid(row=0, column=0, columnspan=4, sticky="w")
-button_sin.grid(row=1, column=0, pady=2)
-button_cos.grid(row=1, column=1, pady=2)
-button_tan.grid(row=1, column=2, pady=2)
-button_delete.grid(row=1, column=3, pady=2)
+button_left_bracket.grid(row=1, column=0, pady=2)
+button_right_bracket.grid(row=1, column=1, pady=2)
+button_delete.grid(row=1, column=2, pady=2)
+button_clear.grid(row=1, column=3, pady=2)
 button_one.grid(row=2, column=0, pady=2)
 button_two.grid(row=2, column=1, pady=2)
 button_three.grid(row=2, column=2, pady=2)
