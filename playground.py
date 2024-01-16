@@ -125,7 +125,7 @@ button_equals.grid(row=5, column=3, pady=2)
 last_frame = ttk.Label(root, padding=10)
 last_frame.grid()
 
-last_done_label = tk.Label(button_frame, text="Last Done: ", width=50)
+last_done_label = tk.Label(last_frame, text="Last Done: ", width=50)
 
 last_done_label.grid(row=6, column=0, pady=2)"""
 
