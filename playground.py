@@ -65,7 +65,11 @@ def decimal():
     NotImplemented 
 
 def equals():
-    NotImplemented
+    thing_to_be_calculated = entry.get()
+    answer = eval(thing_to_be_calculated)
+    entry.delete(0, tk.END)
+    entry.insert(0, answer)
+    last_done_label.config(text="Last Done: " + thing_to_be_calculated + " = " + str(answer))
 
 # Button Frame
 button_frame = ttk.Label(root, padding=10)
@@ -121,13 +125,13 @@ button_zero.grid(row=5, column=1, pady=2)
 button_add.grid(row=5, column=2, pady=2)
 button_equals.grid(row=5, column=3, pady=2)
 
-"""# Last Frame
+# Last Frame
 last_frame = ttk.Label(root, padding=10)
 last_frame.grid()
 
-last_done_label = tk.Label(last_frame, text="Last Done: ", width=50)
+last_done_label = tk.Label(last_frame, text="Last Done: ")
 
-last_done_label.grid(row=6, column=0, pady=2)"""
+last_done_label.grid(row=6, column=0, pady=2)
 
 # Run the application
 root.mainloop()
