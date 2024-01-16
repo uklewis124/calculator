@@ -66,7 +66,29 @@ def decimal():
 
 def equals():
     thing_to_be_calculated = entry.get()
-    answer = eval(thing_to_be_calculated)
+    new_thing_to_be_calculated = []
+    for i in thing_to_be_calculated:
+        if i == "÷":
+            new_thing_to_be_calculated.append("/")
+        elif i == "×":
+            print("hi")
+            new_thing_to_be_calculated.append("*")
+        else:
+            new_thing_to_be_calculated.append(i)
+    print(new_thing_to_be_calculated)
+    print(thing_to_be_calculated)
+    thing_to_be_calculated = "".join(new_thing_to_be_calculated)
+    print(new_thing_to_be_calculated)
+    print(thing_to_be_calculated)
+    answer = None
+    try:
+        answer = eval(thing_to_be_calculated)
+    except ArithmeticError:
+        answer = "Error"
+    except SyntaxError:
+        answer = "Error"
+    except NameError:
+        answer = "Error"
     entry.delete(0, tk.END)
     entry.insert(0, answer)
     last_done_label.config(text="Last Done: " + thing_to_be_calculated + " = " + str(answer))
