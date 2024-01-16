@@ -78,6 +78,7 @@ def equals():
             new_thing_to_be_calculated.append(i)
     thing_to_be_calculated = "".join(new_thing_to_be_calculated)
     answer = None
+    correct = True
     try:
         answer = eval(thing_to_be_calculated)
     except ZeroDivisionError:
@@ -88,9 +89,13 @@ def equals():
         answer = "Error"
     except NameError:
         answer = "Error"
+    except Exception as e:
+        last_done_label.config(text=f"Error: {e}")
+        correct = False
     entry.delete(0, tk.END)
     entry.insert(0, answer)
-    last_done_label.config(text="Last Done: " + thing_to_be_calculated + " = " + str(answer))
+    if correct:
+        last_done_label.config(text="Last Done: " + thing_to_be_calculated + " = " + str(answer))
 
 # Button Frame
 button_frame = ttk.Label(root, padding=10)
