@@ -72,6 +72,8 @@ def equals():
             new_thing_to_be_calculated.append("*")
         elif i.lower() == "^":
             new_thing_to_be_calculated.append("**")
+        elif i.lower() == "(":
+            new_thing_to_be_calculated.append("*(")
         else:
             new_thing_to_be_calculated.append(i)
     thing_to_be_calculated = "".join(new_thing_to_be_calculated)
@@ -99,26 +101,26 @@ button_frame.grid()
 # Creating button instances
 entry = tk.Entry(button_frame, width=50)
 
-button_left_bracket = tk.Button(button_frame, text="(", command=left_bracket, width=9, height=2)
-button_right_bracket = tk.Button(button_frame, text=")", command=right_bracket, width=9, height=2)
-button_delete = tk.Button(button_frame, text="DEL", command=delete, width=9, height=2)
-button_clear = tk.Button(button_frame, text="C", command=clear, width=9, height=2)
+button_left_bracket = tk.Button(button_frame, text="(", command=left_bracket, width=9, height=2, bg="gray80")
+button_right_bracket = tk.Button(button_frame, text=")", command=right_bracket, width=9, height=2, bg="gray80")
+button_delete = tk.Button(button_frame, text="DEL", command=delete, width=9, height=2, bg="lightgrey")
+button_clear = tk.Button(button_frame, text="C", command=clear, width=9, height=2, bg="darkred", fg="white")
 button_one = tk.Button(button_frame, text="1", command=one, width=9, height=2)
 button_two = tk.Button(button_frame, text="2", command=two, width=9, height=2)
 button_three = tk.Button(button_frame, text="3", command=three, width=9, height=2)
-button_divide = tk.Button(button_frame, text="/", command=divide, width=9, height=2)
+button_divide = tk.Button(button_frame, text="/", command=divide, width=9, height=2, bg="gray80")
 button_four = tk.Button(button_frame, text="4", command=four, width=9, height=2)
 button_five = tk.Button(button_frame, text="5", command=five, width=9, height=2)
 button_six = tk.Button(button_frame, text="6", command=six, width=9, height=2)
-button_multiply = tk.Button(button_frame, text="*", command=multiply, width=9, height=2)
+button_multiply = tk.Button(button_frame, text="*", command=multiply, width=9, height=2, bg="gray80")
 button_seven = tk.Button(button_frame, text="7", command=seven, width=9, height=2)
 button_eight = tk.Button(button_frame, text="8", command=eight, width=9, height=2)
 button_nine = tk.Button(button_frame, text="9", command=nine, width=9, height=2)
-button_subtract = tk.Button(button_frame, text="-", command=subtract, width=9, height=2)
-button_decimal = tk.Button(button_frame, text=".", command=decimal, width=9, height=2)
+button_subtract = tk.Button(button_frame, text="-", command=subtract, width=9, height=2, bg="gray80")
+button_decimal = tk.Button(button_frame, text=".", command=decimal, width=9, height=2, bg="gray75")
 button_zero = tk.Button(button_frame, text="0", command=zero, width=9, height=2)
-button_add = tk.Button(button_frame, text="+", command=add, width=9, height=2)
-button_equals = tk.Button(button_frame, text="=", command=equals, width=9, height=2)
+button_add = tk.Button(button_frame, text="+", command=add, width=9, height=2, bg="gray80")
+button_equals = tk.Button(button_frame, text="=", command=equals, width=9, height=2, bg="lightgrey")
 
 
 # Assigning buttons to a grid
